@@ -54,7 +54,7 @@ public class IVCheckPanel extends JPanel{
 				pkmIconLabel.setIcon(new PokemonIcon(pkm.getID()));
 			}
 		});
-		this.cmbPokemon.setSelectedItem(ComboBoxUtil.getComboBoxItem(this.cmbPokemon, 1));
+		this.cmbPokemon.setSelectedItem(ComboBoxUtil.getComboBoxItem(this.cmbPokemon, 7));	// initialize to squirtle
 		
 		this.txtHP = new IntegerJTextField(2);
 		this.txtAtk = new IntegerJTextField[3];
@@ -69,9 +69,26 @@ public class IVCheckPanel extends JPanel{
 			this.txtSpd[i] = new IntegerJTextField(2);
 			this.txtSpe[i] = new IntegerJTextField(2);
 		}
+
+		
 		this.txtID = new IntegerJTextField(5);
 		this.txtMinFrame = new IntegerJTextField(6);
 		this.txtMaxFrame = new IntegerJTextField(6);
+
+
+		//DEBUG
+		this.txtHP.setText("0");
+		this.txtAtk[0].setText("21");
+		this.txtAtk[1].setText("4");
+		this.txtDef[0].setText("16");
+		this.txtSpa[2].setText("30");
+		this.txtSpe[0].setText("24");
+
+		this.txtMinFrame.setText("4050");
+		this.txtMaxFrame.setText("5900");
+		this.txtID.setText("52259");
+		// END DEBUG
+
 		this.setLayout(new BorderLayout());
 		this.add(new JPanel(){
 			/**
