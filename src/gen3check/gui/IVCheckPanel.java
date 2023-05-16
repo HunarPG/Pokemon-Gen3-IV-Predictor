@@ -75,7 +75,7 @@ public class IVCheckPanel extends JPanel{
 		this.txtMinFrame = new IntegerJTextField(6);
 		this.txtMaxFrame = new IntegerJTextField(6);
 
-
+		
 		//DEBUG
 		this.txtHP.setText("0");
 		this.txtAtk[0].setText("21");
@@ -86,8 +86,9 @@ public class IVCheckPanel extends JPanel{
 
 		this.txtMinFrame.setText("4050");
 		this.txtMaxFrame.setText("5900");
-		this.txtID.setText("52259");
+		//this.txtID.setText("52259");
 		// END DEBUG
+		
 
 		this.setLayout(new BorderLayout());
 		this.add(new JPanel(){
