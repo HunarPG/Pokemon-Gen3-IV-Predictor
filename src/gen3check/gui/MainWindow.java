@@ -42,5 +42,7 @@ public class MainWindow extends JFrame {
 		this.setLocationByPlatform(true);
 		this.setVisible(true);
 		this.setResizable(false);
+
+		this.getRootPane().setDefaultButton(this.ivcheckpanel.getSearchButton());
 	}
 }

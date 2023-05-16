@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
+import javax.swing.JFrame;
 
 import gen3check.Controller;
 import gen3check.pokemon.data.PokemonData;
@@ -36,10 +37,15 @@ public class IVCheckPanel extends JPanel{
 		this.mw = mainWindow;
 		this.c = c;
 		this.rp = rp;
-		this.setParams();
+		this.setParams();		
+	}
+
+	public JButton getSearchButton() {
+		return searchButton;
 	}
 	
 	private void setParams() {
+
 		this.pkmIconLabel = new JLabel(new PokemonIcon(1));
 		this.pkmIconLabel.setPreferredSize(new Dimension(64,64));
 		this.pkmIconLabel.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -200,6 +206,83 @@ public class IVCheckPanel extends JPanel{
 						});
 					}
 				}, BorderLayout.CENTER);
+
+
+				searchButton = new JButton("Search") {
+					{
+						this.setPreferredSize(new Dimension(150,40));
+						this.addActionListener(new ActionListener(){
+							@Override
+							public void actionPerformed(ActionEvent arg0) {
+								if (txtHP.isEmpty()) txtHP.setText("0");
+								for (int i = 0; i < 3; i++){
+									if (txtAtk[i].isEmpty()) txtAtk[i].setText("0");
+									if (txtDef[i].isEmpty()) txtDef[i].setText("0");
+									if (txtSpa[i].isEmpty()) txtSpa[i].setText("0");
+									if (txtSpd[i].isEmpty()) txtSpd[i].setText("0");
+									if (txtSpe[i].isEmpty()) txtSpe[i].setText("0");
+								}
+								if (txtID.isEmpty()) txtID.setText("0");
+								if (Integer.parseInt(txtID.getText()) > 65535) txtID.setText("0");
+								if (Integer.parseInt(txtHP.getText()) > 31) txtHP.setText("31");
+								for (int i = 0; i < 3; i++){
+									if (Integer.parseInt(txtAtk[i].getText()) > 31) txtAtk[i].setText("31");
+									if (Integer.parseInt(txtDef[i].getText()) > 31) txtDef[i].setText("31");
+									if (Integer.parseInt(txtSpa[i].getText()) > 31) txtSpa[i].setText("31");
+									if (Integer.parseInt(txtSpd[i].getText()) > 31) txtSpd[i].setText("31");
+									if (Integer.parseInt(txtSpe[i].getText()) > 31) txtSpe[i].setText("31");
+								}
+								if (txtMinFrame.isEmpty()) txtMinFrame.setText("0");
+								if (txtMaxFrame.isEmpty()) txtMaxFrame.setText("0");
+								if (Integer.parseInt(txtMaxFrame.getText()) < Integer.parseInt(txtMinFrame.getText())){
+									txtMaxFrame.setText(txtMinFrame.getText());
+								}
+								c.search(
+										Integer.parseInt(txtMinFrame.getText()),
+										Integer.parseInt(txtMaxFrame.getText()),
+										Integer.parseInt(txtID.getText()),
+										((PokemonData) cmbPokemon.getSelectedItem()).getID(),
+										new StatPack(
+											Integer.parseInt(txtHP.getText()),
+											Integer.parseInt(txtAtk[0].getText()),
+											Integer.parseInt(txtDef[0].getText()),
+											Integer.parseInt(txtSpa[0].getText()),
+											Integer.parseInt(txtSpd[0].getText()),
+											Integer.parseInt(txtSpe[0].getText())	
+										),
+										new StatPack(
+											Integer.parseInt(txtHP.getText()),
+											Integer.parseInt(txtAtk[1].getText()),
+											Integer.parseInt(txtDef[1].getText()),
+											Integer.parseInt(txtSpa[1].getText()),
+											Integer.parseInt(txtSpd[1].getText()),
+											Integer.parseInt(txtSpe[1].getText())	
+										),
+										new StatPack(
+											Integer.parseInt(txtHP.getText()),
+											Integer.parseInt(txtAtk[2].getText()),
+											Integer.parseInt(txtDef[2].getText()),
+											Integer.parseInt(txtSpa[2].getText()),
+											Integer.parseInt(txtSpd[2].getText()),
+											Integer.parseInt(txtSpe[2].getText())	
+										),
+										rp.getNatures()
+										);
+							}
+						});
+					}
+
+				};
+				this.add(searchButton, BorderLayout.SOUTH);
+				//JRootPane rootPane = temp.getRootPane();
+
+
+
+
+
+
+
+				/*
 				this.add(new JButton("Search"){
 					{
 						this.setPreferredSize(new Dimension(150,40));
@@ -264,10 +347,10 @@ public class IVCheckPanel extends JPanel{
 						});
 					}
 				}, BorderLayout.SOUTH);
-					
+				*/
 			}
+			
 		}, BorderLayout.CENTER);
-		
 		
 	}
 
@@ -286,4 +369,6 @@ public class IVCheckPanel extends JPanel{
 	private IntegerJTextField txtMaxFrame;
 	private IntegerJTextField txtMinFrame;
 	private JComboBox<PokemonData> cmbPokemon;
+
+	private JButton searchButton;
 }
