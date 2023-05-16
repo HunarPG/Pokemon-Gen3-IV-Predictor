@@ -200,6 +200,7 @@ public class IVCheckPanel extends JPanel{
 									@Override
 									public void actionPerformed(ActionEvent arg0) {
 										txtID.setText("");
+										txtID.requestFocusInWindow();
 									}
 								});
 							}
