@@ -82,8 +82,8 @@ public class IVCheckPanel extends JPanel{
 		this.txtMaxFrame = new IntegerJTextField(6);
 
 		
-		//DEBUG
-		this.txtHP.setText("0");
+		// Hard code personal settings
+		//this.txtHP.setText("0");
 		this.txtAtk[0].setText("21");
 		this.txtAtk[1].setText("4");
 		this.txtDef[0].setText("16");
@@ -93,7 +93,7 @@ public class IVCheckPanel extends JPanel{
 		this.txtMinFrame.setText("4050");
 		this.txtMaxFrame.setText("5900");
 		//this.txtID.setText("52259");
-		// END DEBUG
+		
 		
 
 		this.setLayout(new BorderLayout());
@@ -200,7 +200,7 @@ public class IVCheckPanel extends JPanel{
 									@Override
 									public void actionPerformed(ActionEvent arg0) {
 										txtID.setText("");
-										txtID.requestFocusInWindow();
+										txtID.requestFocusInWindow();	// set cursor to TID box whenever "Clear TID" is pressed
 									}
 								});
 							}
