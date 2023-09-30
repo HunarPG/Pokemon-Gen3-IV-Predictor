@@ -86,12 +86,13 @@ public class IVCheckPanel extends JPanel{
 		//this.txtHP.setText("0");
 		this.txtAtk[0].setText("21");
 		this.txtAtk[1].setText("4");
-		this.txtDef[0].setText("16");
+		this.txtDef[0].setText("7");
 		this.txtSpa[2].setText("30");
-		this.txtSpe[1].setText("24");
+		this.txtSpd[0].setText("5");
+		this.txtSpe[1].setText("21");
 
-		this.txtMinFrame.setText("4050");
-		this.txtMaxFrame.setText("5900");
+		this.txtMinFrame.setText("4200");
+		this.txtMaxFrame.setText("6000");
 		//this.txtID.setText("52259");
 		
 		
