@@ -135,7 +135,7 @@ public class PokemonFoundPanel extends JPanel{
 				int frame = (int) table.getModel().getValueAt(table.getSelectedRow(), 0);
 				PokemonRNG pRNG = new PokemonMethod1(new Seed(c.getTrainerID()), frame);
 				Pokemon pokemon = new Pokemon(
-						c.getPokemonID(), 6, new StatPack(pRNG.hp, pRNG.atk, pRNG.def, pRNG.spa, pRNG.spd, pRNG.spe),
+						c.getPokemonID(), 5, new StatPack(pRNG.hp, pRNG.atk, pRNG.def, pRNG.spa, pRNG.spd, pRNG.spe),
 						new StatPack(0), pRNG.nature, new Ability(0), new PokemonItem(0), false);
 				rp.updateSelectedPokemon(pokemon, frame);
 			}	
