@@ -76,7 +76,7 @@ public class PokemonData extends Data {
 	}
 	
 	public static int POKEMON_N = 649;
-	public static int POKEMON_3GEN = 386;
+	public static int POKEMON_3GEN = 649;
 	
     public StatPack baseStat;
     public int exp;
